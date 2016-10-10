@@ -13,6 +13,6 @@ fi
 PROJECT="$1"
 BIN="bazel-bin/$PROJECT/$PROJECT"
 
-bazel build "$PROJECT"
+bazel build -c opt "$PROJECT"
 tar --xform "s%.*/%%" -cz "$BIN" "$PROJECT/Dockerfile" | \
   docker build -t "smyte/$PROJECT" -
