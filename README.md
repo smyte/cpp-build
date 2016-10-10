@@ -7,7 +7,7 @@ Smyte's C++ development is based on facebook's [folly](https://github.com/facebo
 
 ## Setup
 * Install `bazel` and `lib-ssl`.
-* Ensure submodules are up-to-date: `git submodule update`.
+* Ensure submodules are up-to-date: `git submodule update --init`.
 * Build a project: `bazel clean && bazel build ratelimit`. The first build may take a while to fetch all the third-party dependencies and build static libraries.
 
 ## Style guide
