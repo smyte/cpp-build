@@ -14,5 +14,5 @@ PROJECT="$1"
 BIN="bazel-bin/$PROJECT/$PROJECT"
 
 bazel build "$PROJECT"
-tar --xform "s%.*/$PROJECT%$PROJECT%" -cz "$BIN" "$PROJECT/Dockerfile" | \
+tar --xform "s%.*/%%" -cz "$BIN" "$PROJECT/Dockerfile" | \
   docker build -t "smyte/$PROJECT" -
