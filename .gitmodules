@@ -13,3 +13,6 @@
 [submodule "ratelimit"]
 	path = ratelimit
 	url = git@github.com:smyte/ratelimit.git
+[submodule "stesting"]
+	path = stesting
+	url = git@github.com:smyte/stesting.git
