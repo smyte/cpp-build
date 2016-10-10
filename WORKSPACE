@@ -235,7 +235,7 @@ bind(
 new_git_repository(
     name = "rocksdb_git",
     remote = "https://github.com/facebook/rocksdb.git",
-    tag = "v4.8",
+    tag = "v4.11.2",
     build_file = "third_party/rocksdb.BUILD",
 )
 
