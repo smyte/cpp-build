@@ -3,9 +3,9 @@ workspace(name = "smyte")
 # avro
 new_http_archive(
     name = "avro_archive",
-    url = "https://github.com/apache/avro/archive/release-1.8.1.zip",
+    url = "https://github.com/apache/avro/archive/release-1.8.1.tar.gz",
     strip_prefix = "avro-release-1.8.1",
-    sha256 = "6c2a5728bc0fd17a5c0a0ba1adfede0c8aa1e24cd035bc8643b3b3c533120a7a",
+    sha256 = "1bd406e161ca384c14a224cd12c9f6cb5f0b07924f7d52179f4e2691d1b91b50",
     build_file = "third_party/avro.BUILD",
 )
 
@@ -62,9 +62,9 @@ bind(
 # double-conversion
 new_http_archive(
     name = "double_conversion_archive",
-    url = "https://github.com/google/double-conversion/archive/d4d68e4.zip",
+    url = "https://github.com/google/double-conversion/archive/d4d68e4.tar.gz",
     strip_prefix = "double-conversion-d4d68e4e788bec89d55a6a3e33af674087837c82",
-    sha256 = "7cf5fce1afc7698c6d56c71d93f2f655915d2282063ead40c4e0a2c97a957c56",
+    sha256 = "4c21c78b4787051e682c7b5579ddb0c5fba823328faf14cdf52152a1f5bcdd32",
     build_file = "third_party/double-conversion.BUILD",
 )
 
@@ -77,7 +77,7 @@ bind(
 # folly
 new_http_archive(
     name = "folly_archive",
-    url = "https://github.com/facebook/folly/archive/4cf30a1.zip",
+    url = "https://github.com/facebook/folly/archive/4cf30a1.tar.gz",
     strip_prefix = "folly-4cf30a1441af267ee42ab2fc9976dc3332f36ed8",
     build_file = "third_party/folly.BUILD",
 )
@@ -96,9 +96,9 @@ bind(
 # gflags
 http_archive(
     name = "gflags_archive",
-    url = "https://github.com/gflags/gflags/archive/f4eace1.zip",
+    url = "https://github.com/gflags/gflags/archive/f4eace1.tar.gz",
     strip_prefix = "gflags-f4eace133187e0a101a6d6d71c55592b572de189",
-    sha256 = "d90e767679e0c2ad01b51e7ffb21b2c63caeea9fad07fcc133d3b6f42c59bdb2",
+    sha256 = "4bc2b2d677aaeb26a319fc58096976bf162ccdae66db8bb50a98a925d62f71fa",
 )
 
 bind(
@@ -110,9 +110,9 @@ bind(
 # glog
 new_http_archive(
     name = "glog_archive",
-    url = "https://github.com/google/glog/archive/0472b91.zip",
+    url = "https://github.com/google/glog/archive/0472b91.tar.gz",
     strip_prefix = "glog-0472b91c5defdf90cff7292e3bf7bd86770a9a0a",
-    sha256 = "710ee08a44e8384529ae0cd86cfca48940b485ab01e8b398dc32f8bb0913cf4f",
+    sha256 = "abb174454241c1c5b84f83d256a4bf0def8c1e725e3c06650f361e51def4005e",
     build_file = "third_party/glog.BUILD",
 )
 
@@ -130,9 +130,9 @@ bind(
 # gtest
 new_http_archive(
     name = "gtest_archive",
-    url = "https://github.com/google/googletest/archive/release-1.8.0.zip",
+    url = "https://github.com/google/googletest/archive/release-1.8.0.tar.gz",
     strip_prefix = "googletest-release-1.8.0",
-    sha256 = "f3ed3b58511efd272eb074a3a6d6fb79d7c2e6a0e374323d1e6bcbcc1ef141bf",
+    sha256 = "58a6f4277ca2bc8565222b3bbd58a177609e9c488e8a72649359ba51450db7d8",
     build_file = "third_party/gtest.BUILD",
 )
 
@@ -160,9 +160,9 @@ bind(
 # libevent
 new_http_archive(
     name = "libevent_archive",
-    url = "https://github.com/libevent/libevent/archive/release-2.0.22-stable.zip",
+    url = "https://github.com/libevent/libevent/archive/release-2.0.22-stable.tar.gz",
     strip_prefix = "libevent-release-2.0.22-stable",
-    sha256 = "84cd42f5ccba27868ec4e9176dfedb35fb87b34ef7d94c47c138ec3506a80677",
+    sha256 = "ab89639b0819befb1d8b293d52047c6955f8d1c9150c2b22a0e6247930eb9128",
     build_file = "third_party/libevent.BUILD",
 )
 
@@ -180,9 +180,9 @@ bind(
 # librdkafka
 new_http_archive(
     name = "librdkafka_archive",
-    url = "https://github.com/edenhill/librdkafka/archive/0.9.1.zip",
+    url = "https://github.com/edenhill/librdkafka/archive/0.9.1.tar.gz",
     strip_prefix = "librdkafka-0.9.1",
-    sha256 = "62f64bd1b5fed505db0e9ba80bb5150dc981a75d813ab12f2b4da0b81a64f2f1",
+    sha256 = "5ad57e0c9a4ec8121e19f13f05bacc41556489dfe8f46ff509af567fdee98d82",
     build_file = "third_party/librdkafka.BUILD",
 )
 
@@ -219,9 +219,9 @@ bind(
 # murmurhash3
 new_http_archive(
     name = "murmurhash3_archive",
-    url = "https://github.com/aappleby/smhasher/archive/61a0530.zip",
+    url = "https://github.com/aappleby/smhasher/archive/61a0530.tar.gz",
     strip_prefix = "smhasher-61a0530f28277f2e850bfc39600ce61d02b518de",
-    sha256 = "950ab5345e43bf48ce2599f6c3f6ed711f20478f4a1b52763511bd4029d97656",
+    sha256 = "daa4bb23e24fe26a2f9d1bb0d241fff7eb963f7b7525fa20685e0dfb3b3ffa49",
     build_file = "third_party/murmurhash3.BUILD",
 )
 
@@ -248,9 +248,9 @@ bind(
 # snappy
 new_http_archive(
     name = "snappy_archive",
-    url = "https://github.com/google/snappy/archive/32d6d7d.zip",
+    url = "https://github.com/google/snappy/archive/32d6d7d.tar.gz",
     strip_prefix = "snappy-32d6d7d8a2ef328a2ee1dd40f072e21f4983ebda",
-    sha256 = "fe8099fc71349dd704f4af470ffffa1ad8d611195b7359075034f4e490c9e967",
+    sha256 = "f50719c6dc7103d65df66882a3b4569d598eda251266463eca716928187dc12b",
     build_file = "third_party/snappy.BUILD",
 )
 
@@ -268,9 +268,9 @@ bind(
 # wangle
 new_http_archive(
     name = "wangle_archive",
-    url = "https://github.com/facebook/wangle/archive/570f09e.zip",
+    url = "https://github.com/facebook/wangle/archive/570f09e.tar.gz",
     strip_prefix = "wangle-570f09e3985746812875549d1c13204690505149",
-    sha256 = "3f95de1718937525f8d947623aab6a9a6ffb1d26e4cd07dfad615433df7e9fe7",
+    sha256 = "8306037414b6832774a05174a67d82ecc2595d90db7c321269288ef8bc86582d",
     build_file = "third_party/wangle.BUILD",
 )
 
@@ -283,9 +283,9 @@ bind(
 # jemalloc
 new_http_archive(
     name = "jemalloc_archive",
-    url = "https://github.com/jemalloc/jemalloc/archive/4.2.1.zip",
+    url = "https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz",
     strip_prefix = "jemalloc-4.2.1",
-    sha256 = "93f65652bbaffd42277815db7f13c685867d834e4dcbb7b8d1269b3c4012f618",
+    sha256 = "38abd5c3798dee4bd0e63e082502358cd341b831b038bb443e89370df888a3eb",
     build_file = "third_party/jemalloc.BUILD",
 )
 
@@ -303,9 +303,9 @@ bind(
 # zlib
 new_http_archive(
     name = "zlib_archive",
-    url = "https://github.com/madler/zlib/archive/v1.2.8.zip",
+    url = "https://github.com/madler/zlib/archive/v1.2.8.tar.gz",
     strip_prefix = "zlib-1.2.8",
-    sha256 = "72290446e06e8962514d9226540b5277d3150a879afa0e6a88d98bc106f2fdc3",
+    sha256 = "e380bd1bdb6447508beaa50efc653fe45f4edc1dafe11a251ae093e0ee97db9a",
     build_file = "third_party/zlib.BUILD",
 )
 
