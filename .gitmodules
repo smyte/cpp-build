@@ -1,0 +1,15 @@
+[submodule "third_party"]
+	path = third_party
+	url = git@github.com:smyte/third_party.git
+[submodule "infra"]
+	path = infra
+	url = git@github.com:smyte/infra.git
+[submodule "pipeline"]
+	path = pipeline
+	url = git@github.com:smyte/pipeline.git
+[submodule "codec"]
+	path = codec
+	url = git@github.com:smyte/codec.git
+[submodule "ratelimit"]
+	path = ratelimit
+	url = git@github.com:smyte/ratelimit.git
