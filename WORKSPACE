@@ -177,6 +177,21 @@ bind(
 )
 # end of jemalloc
 
+# jsoncpp
+new_http_archive(
+    name = "jsoncpp_archive",
+    url = "https://github.com/open-source-parsers/jsoncpp/archive/1.7.7.tar.gz",
+    strip_prefix = "jsoncpp-1.7.7",
+    sha256 = "087640ebcf7fbcfe8e2717a0b9528fff89c52fcf69fa2a18cc2b538008098f97",
+    build_file = "third_party/jsoncpp.BUILD",
+)
+
+bind(
+    name = "jsoncpp",
+    actual = "@jsoncpp_archive//:jsoncpp",
+)
+# end of jsoncpp
+
 # libevent
 new_http_archive(
     name = "libevent_archive",
