@@ -157,6 +157,26 @@ bind(
 )
 # end of gtest
 
+# jemalloc
+new_http_archive(
+    name = "jemalloc_archive",
+    url = "https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz",
+    strip_prefix = "jemalloc-4.2.1",
+    sha256 = "38abd5c3798dee4bd0e63e082502358cd341b831b038bb443e89370df888a3eb",
+    build_file = "third_party/jemalloc.BUILD",
+)
+
+bind(
+    name = "jemalloc",
+    actual = "@jemalloc_archive//:jemalloc",
+)
+
+bind(
+    name = "jemalloc_config",
+    actual = "//third_party/jemalloc:config"
+)
+# end of jemalloc
+
 # libevent
 new_http_archive(
     name = "libevent_archive",
@@ -279,26 +299,6 @@ bind(
     actual = "@wangle_archive//:wangle",
 )
 # end of wangle
-
-# jemalloc
-new_http_archive(
-    name = "jemalloc_archive",
-    url = "https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz",
-    strip_prefix = "jemalloc-4.2.1",
-    sha256 = "38abd5c3798dee4bd0e63e082502358cd341b831b038bb443e89370df888a3eb",
-    build_file = "third_party/jemalloc.BUILD",
-)
-
-bind(
-    name = "jemalloc",
-    actual = "@jemalloc_archive//:jemalloc",
-)
-
-bind(
-    name = "jemalloc_config",
-    actual = "//third_party/jemalloc:config"
-)
-# end of jemalloc
 
 # zlib
 new_http_archive(
