@@ -59,6 +59,26 @@ bind(
 )
 # end of boost
 
+# curl
+new_http_archive(
+    name = "curl_archive",
+    url = "https://github.com/curl/curl/archive/curl-7_50_3.tar.gz",
+    strip_prefix = "curl-curl-7_50_3",
+    sha256 = "ecd233ab5871d48b8df362a0044cbd5af69db81840e8fde8dfbfa2307fcb2bf9",
+    build_file = "third_party/curl.BUILD",
+)
+
+bind(
+    name = "curl",
+    actual = "@curl_archive//:curl",
+)
+
+bind(
+    name = "curl_config",
+    actual = "//third_party/curl:config"
+)
+# end of curl
+
 # double-conversion
 new_http_archive(
     name = "double_conversion_archive",
@@ -126,6 +146,60 @@ bind(
     actual = "//third_party/glog:config"
 )
 # end of glog
+
+# google cloud apis
+new_http_archive(
+    name = "google_cloud_apis_archive",
+    # Note: update the version in BUILD file
+    url = "https://github.com/google/google-api-cpp-client/archive/bb5aed1.tar.gz",
+    strip_prefix = "google-api-cpp-client-bb5aed14f3d9aa7f513aedf06a04a98c65e2972b",
+    sha256 = "4f280cf21487161964556c2e0d61a3aff6429250929de1d9c94f92ff0265831e",
+    build_file = "third_party/google_cloud_apis.BUILD",
+)
+
+bind(
+    name = "googleapis_http",
+    actual = "@google_cloud_apis_archive//:http",
+)
+
+bind(
+    name = "googleapis_curl_http",
+    actual = "@google_cloud_apis_archive//:curl_http",
+)
+
+bind(
+    name = "googleapis_internal",
+    actual = "@google_cloud_apis_archive//:internal",
+)
+
+bind(
+    name = "googleapis_jsoncpp",
+    actual = "@google_cloud_apis_archive//:jsoncpp",
+)
+
+bind(
+    name = "googleapis_oauth2",
+    actual = "@google_cloud_apis_archive//:oauth2",
+)
+
+# end of google cloud apis
+
+# google cloud storage
+new_http_archive(
+    name = "google_cloud_storage_archive",
+    # Note: update the version in BUILD file
+    url = "https://developers.google.com/resources/api-libraries/download/storage/v1/cpp",
+    type = "zip",
+    strip_prefix = "storage",
+    sha256 = "ae8a24611e9a92ae7d27107402ab7fb8f6323ea5aae78beef14345a60c5937eb",
+    build_file = "third_party/google_cloud_storage.BUILD",
+)
+
+bind(
+    name = "googleapis_storage",
+    actual = "@google_cloud_storage_archive//:storage",
+)
+# end of google cloud storage
 
 # gtest
 new_http_archive(
