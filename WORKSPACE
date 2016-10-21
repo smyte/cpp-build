@@ -296,6 +296,11 @@ new_http_archive(
 )
 
 bind(
+    name = "librdkafka_c",
+    actual = "@librdkafka_archive//:librdkafka_c",
+)
+
+bind(
     name = "librdkafka",
     actual = "@librdkafka_archive//:librdkafka",
 )
