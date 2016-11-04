@@ -59,6 +59,26 @@ bind(
 )
 # end of boost
 
+# curl
+new_http_archive(
+    name = "curl_archive",
+    url = "https://github.com/curl/curl/archive/curl-7_50_3.tar.gz",
+    strip_prefix = "curl-curl-7_50_3",
+    sha256 = "ecd233ab5871d48b8df362a0044cbd5af69db81840e8fde8dfbfa2307fcb2bf9",
+    build_file = "third_party/curl.BUILD",
+)
+
+bind(
+    name = "curl",
+    actual = "@curl_archive//:curl",
+)
+
+bind(
+    name = "curl_config",
+    actual = "//third_party/curl:config"
+)
+# end of curl
+
 # double-conversion
 new_http_archive(
     name = "double_conversion_archive",
@@ -77,8 +97,9 @@ bind(
 # folly
 new_http_archive(
     name = "folly_archive",
-    url = "https://github.com/facebook/folly/archive/4cf30a1.tar.gz",
-    strip_prefix = "folly-4cf30a1441af267ee42ab2fc9976dc3332f36ed8",
+    url = "https://github.com/facebook/folly/archive/v2016.10.31.00.tar.gz",
+    strip_prefix = "folly-2016.10.31.00",
+    sha256 = "7bef9ee956248f68f1c4e96be67561842ee6cc030a58e132b93b9be57b6b29ea",
     build_file = "third_party/folly.BUILD",
 )
 
@@ -127,6 +148,60 @@ bind(
 )
 # end of glog
 
+# google cloud apis
+new_http_archive(
+    name = "google_cloud_apis_archive",
+    # Note: update the version in BUILD file
+    url = "https://github.com/google/google-api-cpp-client/archive/bb5aed1.tar.gz",
+    strip_prefix = "google-api-cpp-client-bb5aed14f3d9aa7f513aedf06a04a98c65e2972b",
+    sha256 = "4f280cf21487161964556c2e0d61a3aff6429250929de1d9c94f92ff0265831e",
+    build_file = "third_party/google_cloud_apis.BUILD",
+)
+
+bind(
+    name = "googleapis_http",
+    actual = "@google_cloud_apis_archive//:http",
+)
+
+bind(
+    name = "googleapis_curl_http",
+    actual = "@google_cloud_apis_archive//:curl_http",
+)
+
+bind(
+    name = "googleapis_internal",
+    actual = "@google_cloud_apis_archive//:internal",
+)
+
+bind(
+    name = "googleapis_jsoncpp",
+    actual = "@google_cloud_apis_archive//:jsoncpp",
+)
+
+bind(
+    name = "googleapis_oauth2",
+    actual = "@google_cloud_apis_archive//:oauth2",
+)
+
+# end of google cloud apis
+
+# google cloud storage
+new_http_archive(
+    name = "google_cloud_storage_archive",
+    # Note: update the version in BUILD file
+    url = "https://developers.google.com/resources/api-libraries/download/storage/v1/cpp",
+    type = "zip",
+    strip_prefix = "storage",
+    sha256 = "ae8a24611e9a92ae7d27107402ab7fb8f6323ea5aae78beef14345a60c5937eb",
+    build_file = "third_party/google_cloud_storage.BUILD",
+)
+
+bind(
+    name = "googleapis_storage",
+    actual = "@google_cloud_storage_archive//:storage",
+)
+# end of google cloud storage
+
 # gtest
 new_http_archive(
     name = "gtest_archive",
@@ -157,6 +232,41 @@ bind(
 )
 # end of gtest
 
+# jemalloc
+new_http_archive(
+    name = "jemalloc_archive",
+    url = "https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz",
+    strip_prefix = "jemalloc-4.2.1",
+    sha256 = "38abd5c3798dee4bd0e63e082502358cd341b831b038bb443e89370df888a3eb",
+    build_file = "third_party/jemalloc.BUILD",
+)
+
+bind(
+    name = "jemalloc",
+    actual = "@jemalloc_archive//:jemalloc",
+)
+
+bind(
+    name = "jemalloc_config",
+    actual = "//third_party/jemalloc:config"
+)
+# end of jemalloc
+
+# jsoncpp
+new_http_archive(
+    name = "jsoncpp_archive",
+    url = "https://github.com/open-source-parsers/jsoncpp/archive/1.7.7.tar.gz",
+    strip_prefix = "jsoncpp-1.7.7",
+    sha256 = "087640ebcf7fbcfe8e2717a0b9528fff89c52fcf69fa2a18cc2b538008098f97",
+    build_file = "third_party/jsoncpp.BUILD",
+)
+
+bind(
+    name = "jsoncpp",
+    actual = "@jsoncpp_archive//:jsoncpp",
+)
+# end of jsoncpp
+
 # libevent
 new_http_archive(
     name = "libevent_archive",
@@ -184,6 +294,11 @@ new_http_archive(
     strip_prefix = "librdkafka-0.9.1",
     sha256 = "5ad57e0c9a4ec8121e19f13f05bacc41556489dfe8f46ff509af567fdee98d82",
     build_file = "third_party/librdkafka.BUILD",
+)
+
+bind(
+    name = "librdkafka_c",
+    actual = "@librdkafka_archive//:librdkafka_c",
 )
 
 bind(
@@ -268,9 +383,9 @@ bind(
 # wangle
 new_http_archive(
     name = "wangle_archive",
-    url = "https://github.com/facebook/wangle/archive/570f09e.tar.gz",
-    strip_prefix = "wangle-570f09e3985746812875549d1c13204690505149",
-    sha256 = "8306037414b6832774a05174a67d82ecc2595d90db7c321269288ef8bc86582d",
+    url = "https://github.com/facebook/wangle/archive/v2016.10.31.00.tar.gz",
+    strip_prefix = "wangle-2016.10.31.00",
+    sha256 = "b94f0823918b2d09fd5acc42e9b5f3b3beb356dca192bee191aa544dd2c90b59",
     build_file = "third_party/wangle.BUILD",
 )
 
@@ -279,26 +394,6 @@ bind(
     actual = "@wangle_archive//:wangle",
 )
 # end of wangle
-
-# jemalloc
-new_http_archive(
-    name = "jemalloc_archive",
-    url = "https://github.com/jemalloc/jemalloc/archive/4.2.1.tar.gz",
-    strip_prefix = "jemalloc-4.2.1",
-    sha256 = "38abd5c3798dee4bd0e63e082502358cd341b831b038bb443e89370df888a3eb",
-    build_file = "third_party/jemalloc.BUILD",
-)
-
-bind(
-    name = "jemalloc",
-    actual = "@jemalloc_archive//:jemalloc",
-)
-
-bind(
-    name = "jemalloc_config",
-    actual = "//third_party/jemalloc:config"
-)
-# end of jemalloc
 
 # zlib
 new_http_archive(
